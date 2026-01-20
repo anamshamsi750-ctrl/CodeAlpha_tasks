@@ -1,0 +1,499 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for theme change */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 🌞 Light Mode Variables (Elegant Artistic Theme) */
+body.light-mode {
+    --bg-color: #f9e38c; /* Soft off-white background */
+    --text-color: #2d2d2d; /* Dark grey for clear readability */
+    --primary-color: #080909; /* Fresh blue accent for headings/buttons */
+    --secondary-color: #896427; /* Medium grey for subtitles */
+    --card-bg: #ffffff; /* Clean white for cards/sections */
+    --border-color: #e0e0e0; /* Light grey for subtle dividers */
+    --navbar-bg: #ffffffcc; /* Slightly transparent white for navbar */
+    --navbar-text: #333333; /* Dark text for navbar links */
+    --button-hover-bg: #8eabca; /* Darker blue hover effect */
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --bg-color: #1a1a2e; /* Dark background */
+    --text-color: #e0e0e0; /* Light text */
+    --primary-color: #83e2f3; /* Brighter earthy primary color */
+    --secondary-color: #f1a3df; /* Slightly darker bright earthy tone */
+    --card-bg: #2e3a4e;
+    --border-color: #444;
+    --navbar-bg: #252a34;
+    --navbar-text: #e0e0e0;
+    --button-hover-bg: #d4954e;
+}
+
+/* Apply Variables to Elements */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--navbar-bg);
+    color: var(--navbar-text);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /* Align toggle button vertically */
+}
+
+.navbar ul li {
+    margin-left: 20px;
+}
+
+.navbar ul li a {
+    color: var(--navbar-text);
+    font-weight: bold;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Underline effect for nav links */
+.navbar ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.navbar ul li a:hover::after {
+    width: 100%;
+}
+
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--navbar-text);
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: 20px;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 80px 0;
+    text-align: center;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('hero-bg.jpg'); /* Optional background image */
+    background-size: cover;
+    background-position: center;
+    color: #fff; /* Text always white on hero bg */
+}
+
+body.light-mode .hero-section {
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('your-main-art-image.jpg'); /* Replace with a suitable light mode hero image if desired */
+    /* Or just keep the gradient and change text colors */
+}
+
+body.dark-mode .hero-section {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('your-main-art-image.jpg'); /* Replace with a suitable dark mode hero image if desired */
+}
+
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.hero-text .greeting {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #e0e0e0;
+}
+
+.hero-text h2 {
+    font-size: 3.5rem;
+    margin: 0;
+    color: var(--primary-color); /* Primary color for your name */
+}
+
+.hero-text h3 {
+    font-size: 1.8rem;
+    margin-top: 5px;
+    color: #f0f0f0;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    margin-top: 20px;
+    color: #ccc;
+}
+
+.hero-image img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 10%; /* Circular image */
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+
+/* Buttons */
+.button {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 20px 10px 0 0;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.button.primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.button.primary:hover {
+    background-color: var(--button-hover-bg);
+    color: #fff;
+    text-decoration: none;
+}
+
+.button.secondary {
+    background-color: transparent;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.button.secondary:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/* Sections (General) */
+section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+section:nth-of-type(even) { /* Alternate background for sections */
+    background-color: var(--card-bg); /* Use card background for alternate sections */
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+}
+
+/* About Section */
+.about-section {
+  padding: 40px;
+  text-align: center;
+}
+
+.about-section h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* image left, text right */
+  gap: 40px; /* spacing between image & text */
+  flex-wrap: wrap;
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-image img {
+  max-width: 180px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.about-text {
+  max-width: 600px;
+  margin-left: 40px; /* extra spacing between image and text */
+}
+
+.about-text p {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  color: var(--text-color, #333);
+  line-height: 1.6;
+}
+
+/* Responsive layout for mobile */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .about-text {
+    margin-left: 0;
+  }
+}
+
+
+/* Portfolio Section */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.portfolio-item {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 250px; /* Fixed height for consistent look */
+    object-fit: cover; /* Crop images to fit */
+    display: block;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.portfolio-item h3 {
+    font-size: 1.4rem;
+    margin: 15px 15px 5px 15px;
+    color: var(--primary-color);
+}
+
+.portfolio-item p {
+    font-size: 0.95rem;
+    margin: 0 15px 15px 15px;
+    color: var(--text-color);
+}
+
+.portfolio-item .view-details {
+    display: block;
+    text-align: center;
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 10px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.portfolio-item .view-details:hover {
+    background-color: var(--button-hover-bg);
+    text-decoration: none;
+}
+
+
+/* Contact Section */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: calc(100% - 20px);
+    padding: 12px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: var(--bg-color); /* Input background matching body */
+    color: var(--text-color);
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.contact-form button[type="submit"] {
+    width: auto;
+    display: block; /* Center the button */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--navbar-bg); /* Use navbar background for footer */
+    color: var(--navbar-text);
+    padding: 30px 0;
+    text-align: center;
+    margin-top: 50px;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+}
+
+footer .social-links a {
+    color: var(--navbar-text);
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+footer .social-links a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+    }
+    .navbar ul {
+        margin-top: 15px;
+    }
+    .navbar ul li {
+        margin: 0 10px;
+    }
+    .hero-text h2 {
+        font-size: 2.5rem;
+    }
+    .hero-text h3 {
+        font-size: 1.5rem;
+    }
+    .hero-content, .about-content {
+        flex-direction: column;
+    }
+    .hero-image img, .about-image img {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar .logo {
+        font-size: 1.5rem;
+    }
+    .navbar ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .navbar ul li {
+        margin: 5px 8px;
+    }
+    .hero-section {
+        padding: 50px 0;
+    }
+    .hero-text h2 {
+        font-size: 2rem;
+    }
+    .hero-text h3 {
+        font-size: 1.2rem;
+    }
+    section {
+        padding: 60px 0;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    .button {
+        padding: 10px 20px;
+        margin: 15px 5px 0 0;
+    }
+    .contact-form {
+        padding: 20px;
+    }
+}
